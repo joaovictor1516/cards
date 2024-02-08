@@ -5,9 +5,11 @@ import { X } from "lucide-react"
 
 interface NoteCardProps{
   note: {
+    id: string,
     date: Date,
     content: string
-  }
+  },
+  onNoteDeleted: (id:string) => void
 };
 
 export function NoteCard(props: Readonly<NoteCardProps>){
@@ -47,7 +49,11 @@ export function NoteCard(props: Readonly<NoteCardProps>){
             <button 
             type="button"
             className="w-full text-center py-4 text-sm bg-slate-800 text-slate-300 outline-none font-medium group">
-              Deseja <span className="text-red-400 group-hover:underline">apagar essa nota</span>?
+              Deseja <span
+                      onClick={() => props.onNoteDeleted(props.note.id)}
+                      className="text-red-400 group-hover:underline">
+                        apagar essa nota
+                      </span>?
             </button>
           </Dialog.Content>
         </Dialog.Portal>
