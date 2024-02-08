@@ -16,7 +16,7 @@ export function NewNoteCard(props: NewNoteCardProps){
     setShouldShowText(false);
   }
 
-  function handleText(event:ChangeEvent<HTMLTextAreaElement>){
+  function handleText(event: ChangeEvent<HTMLTextAreaElement>){
     setUserText(event.target.value);
 
     if(event.target.value === ""){
@@ -28,6 +28,9 @@ export function NewNoteCard(props: NewNoteCardProps){
     event.preventDefault();
 
     props.onNoteCreated(userText);
+
+    setUserText("");
+    setShouldShowText(true);
 
     toast.success("Nota salva");
   }
@@ -66,6 +69,7 @@ export function NewNoteCard(props: NewNoteCardProps){
                     autoFocus
                     className="text-sm leading-6 bg-transparent text-slate-400 resize-none outline-none flex-1"
                     onChange={handleText}
+                    value={userText}
                   />
                 )}
               </div>
