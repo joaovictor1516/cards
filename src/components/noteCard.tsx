@@ -52,7 +52,7 @@ export function NoteCard(props: Readonly<NoteCardProps>){
               Deseja <span
                       onClick={() => props.onNoteDeleted(props.note.id)}
                       className="text-red-400 group-hover:underline"
-                      role="buttom">
+                      role="button">
                         apagar essa nota
                       </span>?
             </button>
