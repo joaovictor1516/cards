@@ -9,7 +9,7 @@ interface NewNoteCardProps {
 
 let speechRecognition: SpeechRecognition | null = null;
 
-export function NewNoteCard(props: NewNoteCardProps){
+export function NewNoteCard(props: Readonly<NewNoteCardProps>){
 
   const [shouldShowText, setShouldShowText] = useState(true);
   const [userText, setUserText] = useState("");
